@@ -32,10 +32,12 @@ export class PageMain {
 
     async go_to_page_main(){
         await this.page.goto(this.get_url("main"));
+        await this.page.goto(this.get_url("main"));
         await this.screen_shot("main_page");
     }
 
     async search_for_item(item_to_search: string){
+        console.log(this.get_locator("search_bar"))
         await this.page.fill(this.get_locator("search_bar"), item_to_search);
         await this.screen_shot("main_page_filled_in_search_item")
         await this.page.click(this.get_locator("search_icon"));
