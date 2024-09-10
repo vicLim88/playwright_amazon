@@ -39,4 +39,20 @@ export class PageResult {
         await this.page.click(checkbox_brand);
         await this.screen_shot("result_page_filtered_by_brand");
     }
+
+    async add_item_to_cart(item_to_add_to_cart: string) {
+        const locator_btn_add_to_cart = this.locators["button_add_to_cart"].replace("{item_name_full}", item_to_add_to_cart)
+        await this.page.click(locator_btn_add_to_cart);
+    }
+
+    async view_cart(){
+        const view_cart = this.locators["cart_item"];
+        await this.page.click(view_cart);
+    }
+
+    async assert_cart_count(expected_no_of_item_in_cart: string){
+        const cart_item_count = this.locators["cart_item_count"];
+        console.log(cart_item_count)
+        await expect(this.page.locator(cart_item_count)).toContainText(expected_no_of_item_in_cart);
+    }
 }
