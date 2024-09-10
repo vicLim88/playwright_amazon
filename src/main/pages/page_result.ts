@@ -42,13 +42,15 @@ export class PageResult {
 
     async add_item_to_cart(item_to_add_to_cart: string) {
         const locator_btn_add_to_cart = this.locators["button_add_to_cart"].replace("{item_name_full}", item_to_add_to_cart)
-        await this.page.isVisible(this.locators["cart_notification_added"]);
         await this.page.click(locator_btn_add_to_cart, {timeout: 10000});
+        await this.page.waitForTimeout(10000);
     }
 
     async view_cart(){
         const view_cart = this.locators["cart_item"];
+        await this.page.locator(view_cart).scrollIntoViewIfNeeded();
         await this.page.click(view_cart, {timeout:10000});
+        await this.page.waitForTimeout(10000);
     }
 
     async assert_cart_count(expected_no_of_item_in_cart: string){
