@@ -2,7 +2,11 @@
   "name": "005_test_automation_tarandm",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "sanity": "npx playwright test --project=\"Sanity Tests\"",
+    "regression": "npx playwright test --headed --project=\"Regression Tests\"",
+    "smoke": "npx playwright test --headed --project=\"Smoke Tests\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
