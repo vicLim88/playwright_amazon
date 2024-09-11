@@ -60,6 +60,17 @@ export default defineConfig({
     testDir: './src/tests',
 })
 ```
+<br>
+Depending on the scope of the test, you can set it to either `smoke` or `regression`. Just need to execute the following command:
+
+```bash
+npm run smoke
+```
+```bash
+npm run regression
+```
+
+
 #### Timeout
 By default, the tests are configured with a global timeout of 10 seconds. You can modify this in the playwright.config.ts file.
 ```javascript
